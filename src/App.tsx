@@ -40,36 +40,6 @@ const GALLERY_IMAGES = [
   { id: 7, title: "Cozy Family Screen-Free Afternoon", subtitle: "Instant printable download", src: "https://i.imgur.com/uhB2Ayp.jpeg", type: "image" }
 ];
 
-const CUSTOMER_REVIEWS = [
-  {
-    id: 1,
-    author: "Sarah M.",
-    role: "Mother of two (Ages 4 & 7)",
-    rating: 5,
-    date: "Sept 24, 2026",
-    text: "Absolutely gorgeous illustrations! My kids were entertained for hours. The lines are nice and thick, making it perfect for crayons and markers alike. Highly recommend printing the folding cards too!",
-    verified: true
-  },
-  {
-    id: 2,
-    author: "David K.",
-    role: "Kindergarten Teacher",
-    rating: 5,
-    date: "Sept 18, 2026",
-    text: "I printed these for my classroom morning activity, and they were an instant hit. The characters are cute and friendly rather than scary, which is perfect for preschool/kindergarten kids.",
-    verified: true
-  },
-  {
-    id: 3,
-    author: "Emily R.",
-    role: "Aunt & Holiday Hostess",
-    rating: 5,
-    date: "Sept 12, 2026",
-    text: "Perfect rainy day activity! The instant delivery is so convenient. I saved the A4 PDF to my Google Drive and printed a batch on watercolor cardstock—the results were amazing.",
-    verified: true
-  }
-];
-
 // ----------------------------------------------------------------------
 // SUB-COMPONENT: WHOP EMBEDDED CHECKOUT
 // ----------------------------------------------------------------------
@@ -115,17 +85,18 @@ function WhopCheckout({ onBack }: { onBack: () => void }) {
 
   return (
     <div className="min-h-screen bg-brand-cream text-brand-dark p-4 sm:p-8 md:p-12 font-sans selection:bg-brand-orange selection:text-white">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-xl mx-auto">
         
         {/* Back Link */}
         <button 
           onClick={onBack}
-          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-dark/70 hover:text-brand-orange transition-colors mb-8 cursor-pointer"
+          className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-brand-dark/70 hover:text-brand-orange transition-colors mb-6 cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Product Details</span>
         </button>
 
+        {/* Streamlined Summary (No background cards, clean text, icon-sized image) */}
         <div className="mb-8 space-y-4">
           <div className="flex gap-4 items-center">
             {/* Image styled like a small, premium icon */}
@@ -194,6 +165,7 @@ function WhopCheckout({ onBack }: { onBack: () => void }) {
           {/* The Whop Element anchor container */}
           <div id="whop-checkout" className="w-full"></div>
         </div>
+
       </div>
     </div>
   );
@@ -349,13 +321,16 @@ export default function App() {
           {/* RIGHT COLUMN: Product details & purchase module (Occupies ~42%) */}
           <div className="lg:col-span-5 flex flex-col">
             
-            {/* Title */}
+            {/* Optimized Headline & Supporting Subheader */}
             <h1 className="font-sans text-3xl sm:text-4xl text-brand-dark font-black leading-tight tracking-tight text-wrap-balance">
               110+ Adorable Halloween Coloring Pages for Kids!
             </h1>
+            <p className="text-sm font-semibold text-brand-orange mt-2">
+              Keep Little Hands Busy with Hours of Halloween Coloring Fun!
+            </p>
 
             {/* Seller/Brand Line & Share */}
-            <div className="flex items-center justify-between mt-3 pb-4 border-b border-brand-dark/5">
+            <div className="flex items-center justify-between mt-4 pb-4 border-b border-brand-dark/5">
               <div className="flex items-center gap-2">
                 <span className="text-xs text-brand-dark/60 font-medium">Bestseller in Printables</span>
                 <span aria-hidden="true" className="text-brand-dark/30">·</span>
@@ -390,37 +365,10 @@ export default function App() {
               </div>
             </div>
 
-            {/* Short pitch */}
+            {/* Short pitch description */}
             <p className="text-sm text-brand-dark/80 leading-relaxed">
-              Make this Halloween extra special with a collection of cute, fun, and printable Halloween coloring pages! Perfect for creative afternoons, classroom activities, and healthy screen-free entertainment.
+              Celebrate the spooky season with a delightful collection of child-friendly, printable coloring sheets. Designed for little artists to practice motor coordination and enjoy screen-free family time, this premium bundle is instantly ready to print at home!
             </p>
-
-            {/* Included highlights Checklist (Clean inline presentation, no pills) */}
-            <div className="mt-5 p-4 bg-brand-sec rounded-xl border border-brand-dark/5">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-brand-dark/70 mb-3">What's Included in This Bundle:</h4>
-              <ul className="space-y-2 text-sm text-brand-dark/80">
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4.5 h-4.5 text-brand-orange shrink-0 mt-0.5" />
-                  <span><strong>110+ Halloween Coloring Pages</strong> (high resolution line art)</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4.5 h-4.5 text-brand-orange shrink-0 mt-0.5" />
-                  <span><strong>Cute Child-Friendly Characters:</strong> pumpkins, ghosts, little witches</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4.5 h-4.5 text-brand-orange shrink-0 mt-0.5" />
-                  <span><strong>US Letter & A4 Formats</strong> (both printable files included)</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4.5 h-4.5 text-brand-orange shrink-0 mt-0.5" />
-                  <span><strong>Bonus Halloween Greeting Cards</strong> (extra mini folding cards)</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4.5 h-4.5 text-brand-orange shrink-0 mt-0.5" />
-                  <span><strong>Instant Download Access:</strong> printable in minutes at home</span>
-                </li>
-              </ul>
-            </div>
 
             {/* Primary Buy Action Module */}
             <div className="mt-6 space-y-3">
@@ -429,7 +377,7 @@ export default function App() {
                 onClick={() => navigateTo('/checkout')}
                 className="w-full bg-brand-orange hover:bg-brand-orange/95 text-white font-semibold text-sm tracking-wide uppercase py-4 rounded-xl transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2"
               >
-                <span>GET YOUR COLORING COLLECTION — $9.99</span>
+                <span>GET 110+ HALLOWEEN COLORING PAGES</span>
               </button>
 
               <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs text-brand-dark/60 text-center">
@@ -448,6 +396,33 @@ export default function App() {
               <p className="text-[11px] text-brand-dark/50 text-center italic mt-1">
                 Digital product. No physical item will be shipped.
               </p>
+            </div>
+
+            {/* Included highlights Checklist (Clean inline presentation, no pills, immediately visible above fold) */}
+            <div className="mt-5 p-4 bg-brand-sec rounded-xl border border-brand-dark/5">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-brand-dark/70 mb-3">Instant Product Features:</h4>
+              <ul className="space-y-2 text-sm text-brand-dark/80">
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
+                  <span><strong>110+ Printable Coloring Pages</strong> (featuring friendly pumpkins, ghosts, and witches)</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
+                  <span><strong>US Letter & A4 formats</strong> (both printable files included in your download)</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
+                  <span><strong>Bonus Halloween greeting cards</strong> (folding designs for kids to gift)</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
+                  <span><strong>Instant digital PDF download</strong> (available on screen and via email)</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
+                  <span><strong>One-time payment of $9.99</strong> (no recurring fees, print as many as you need)</span>
+                </li>
+              </ul>
             </div>
 
             {/* Expansion Information Accordion Rows */}
@@ -534,86 +509,138 @@ export default function App() {
       </main>
 
       {/* ----------------------------------------------------------------------
-          PRODUCT DETAILS BREAKDOWN (VISUAL CONTENT DEEP DIVE)
+          OPTIMIZED SECTION 2: TAKE A PEEK INSIDE GALLERY (REAL COMPONENT)
           ---------------------------------------------------------------------- */}
-      <section className="bg-brand-sec py-16 mt-16 border-t border-b border-brand-dark/5">
+      <section className="bg-brand-sec py-16 border-t border-b border-brand-dark/5">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
+          
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="text-xs font-extrabold text-brand-orange tracking-widest uppercase mb-1.5 block">Inside the bundle</span>
+            <h2 className="font-sans text-2xl sm:text-3xl text-brand-dark font-extrabold tracking-tight">
+              Take a Peek Inside Your Halloween Collection
+            </h2>
+            <p className="text-xs sm:text-sm text-brand-dark/70 mt-2">
+              Every single coloring page is formatted with clean, crisp vector outlines designed specifically to look flawless on standard home printers.
+            </p>
+          </div>
+
+          {/* Premium Responsive Grid of 6 Real Preview Pages */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            {GALLERY_IMAGES.slice(0, 6).map((img, idx) => (
+              <div 
+                key={img.id}
+                onClick={() => {
+                  setActiveImageIdx(idx);
+                  setLightboxOpen(true);
+                }}
+                className="bg-white p-3 rounded-2xl border border-brand-dark/5 shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-zoom-in group"
+              >
+                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-brand-sec relative">
+                  <img 
+                    src={img.src} 
+                    alt={img.title} 
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-102"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-brand-dark/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="bg-white/95 text-brand-dark text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-1">
+                      <Maximize2 className="w-3 h-3 text-brand-orange" />
+                      <span>Preview Page</span>
+                    </span>
+                  </div>
+                </div>
+                <div className="mt-2.5 px-1">
+                  <h4 className="text-xs font-bold text-brand-dark">{img.title}</h4>
+                  <p className="text-[10px] text-brand-dark/50 mt-0.5">{img.subtitle}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ----------------------------------------------------------------------
+          OPTIMIZED SECTION 3: IMPROVED BENEFITS SECTION (6 SPECIFIC CARDS)
+          ---------------------------------------------------------------------- */}
+      <section className="py-16 bg-brand-cream">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-semibold text-brand-orange tracking-widest uppercase mb-1.5 block">Premium stationery quality</span>
-            <h2 className="font-sans text-3xl sm:text-4xl text-brand-dark font-extrabold tracking-tight text-wrap-balance">
-              Everything You Need for a Magical Halloween!
+            <span className="text-xs font-extrabold text-brand-sage tracking-widest uppercase mb-1.5 block">Exceptional value</span>
+            <h2 className="font-sans text-2xl sm:text-3xl text-brand-dark font-extrabold tracking-tight">
+              What Makes This Collection Special
             </h2>
-            <p className="text-sm sm:text-base text-brand-dark/70 mt-3">
-              Celebrate Halloween with a delightful collection of adorable coloring pages created for little artists. From cheerful pumpkins to friendly ghosts, every page brings a little Halloween magic to your child's creative time.
+            <p className="text-xs sm:text-sm text-brand-dark/70 mt-2">
+              Every detail has been crafted with care to offer a high-quality, delightful coloring experience.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            {/* Feature 1 */}
-            <div className="bg-brand-cream border border-brand-dark/5 p-6 rounded-2xl shadow-xs hover:shadow-md transition duration-200">
+            {/* Card 1 */}
+            <div className="bg-brand-sec border border-brand-dark/5 p-6 rounded-2xl">
               <div className="w-10 h-10 rounded-xl bg-brand-orange/10 text-brand-orange flex items-center justify-center mb-4">
                 <Paintbrush className="w-5 h-5" />
               </div>
-              <h3 className="font-sans text-lg font-bold text-brand-dark">110+ Printable Coloring Pages</h3>
+              <h3 className="font-sans text-base font-bold text-brand-dark">110+ Cute Drawings</h3>
               <p className="text-xs text-brand-dark/70 mt-2 leading-relaxed">
-                A massive variety of adorable, child-friendly illustrations. Perfect for siblings, playdates, and weeks of holiday entertainment.
+                Featuring friendly ghosts, cheerful jack-o'-lanterns, and tiny witches with no scary elements. Thick, bold borders are perfect for toddlers, while interesting details keep older children fully engaged.
               </p>
             </div>
 
-            {/* Feature 2 */}
-            <div className="bg-brand-cream border border-brand-dark/5 p-6 rounded-2xl shadow-xs hover:shadow-md transition duration-200">
+            {/* Card 2 */}
+            <div className="bg-brand-sec border border-brand-dark/5 p-6 rounded-2xl">
               <div className="w-10 h-10 rounded-xl bg-brand-sage/10 text-brand-sage flex items-center justify-center mb-4">
                 <FileText className="w-5 h-5" />
               </div>
-              <h3 className="font-sans text-lg font-bold text-brand-dark">US Letter & A4 Print Formats</h3>
+              <h3 className="font-sans text-base font-bold text-brand-dark">US Letter & A4 Sizes</h3>
               <p className="text-xs text-brand-dark/70 mt-2 leading-relaxed">
-                Both standard dimensions included with customized layout margins. No cropped edges, no hassle—just open, scale, and print.
+                Both standard dimensions are included with custom-designed printable margins, avoiding cropped edges, stretching, or layout hassle—simply select your preferred size and print.
               </p>
             </div>
 
-            {/* Feature 3 */}
-            <div className="bg-brand-cream border border-brand-dark/5 p-6 rounded-2xl shadow-xs hover:shadow-md transition duration-200">
-              <div className="w-10 h-10 rounded-xl bg-brand-lavender/20 text-brand-lavender/80 flex items-center justify-center mb-4">
+            {/* Card 3 */}
+            <div className="bg-brand-sec border border-brand-dark/5 p-6 rounded-2xl">
+              <div className="w-10 h-10 rounded-xl bg-brand-lavender/25 text-brand-lavender flex items-center justify-center mb-4 animate-none">
                 <Sparkles className="w-5 h-5" />
               </div>
-              <h3 className="font-sans text-lg font-bold text-brand-dark">Bonus Coloring Cards Included</h3>
+              <h3 className="font-sans text-base font-bold text-brand-dark">Bonus Greeting Cards</h3>
               <p className="text-xs text-brand-dark/70 mt-2 leading-relaxed">
-                Print mini greeting cards that kids can color and fold to gift to teachers, friends, grandparents, or neighbors!
+                Includes printable folding mini greeting cards that children can color and personalize to gift to classmates, teachers, grandparents, and neighbors for a unique holiday touch.
               </p>
             </div>
 
-            {/* Feature 4 */}
-            <div className="bg-brand-cream border border-brand-dark/5 p-6 rounded-2xl shadow-xs hover:shadow-md transition duration-200">
+            {/* Card 4 */}
+            <div className="bg-brand-sec border border-brand-dark/5 p-6 rounded-2xl">
               <div className="w-10 h-10 rounded-xl bg-brand-dark/5 text-brand-dark flex items-center justify-center mb-4">
                 <Clock className="w-5 h-5" />
               </div>
-              <h3 className="font-sans text-lg font-bold text-brand-dark">Instant Digital Access</h3>
+              <h3 className="font-sans text-base font-bold text-brand-dark">Instant Digital Access</h3>
               <p className="text-xs text-brand-dark/70 mt-2 leading-relaxed">
-                No shipping delay! Perfect for last-minute rainy days, travel prep, or immediate classroom preparation.
+                No shipping delay or package wait. Complete payment and immediately receive high-resolution, print-ready PDF files directly on your screen and in your secure email inbox.
               </p>
             </div>
 
-            {/* Feature 5 */}
-            <div className="bg-brand-cream border border-brand-dark/5 p-6 rounded-2xl shadow-xs hover:shadow-md transition duration-200">
+            {/* Card 5 */}
+            <div className="bg-brand-sec border border-brand-dark/5 p-6 rounded-2xl">
               <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center mb-4">
                 <Printer className="w-5 h-5" />
               </div>
-              <h3 className="font-sans text-lg font-bold text-brand-dark">Unlimited Printing Right</h3>
+              <h3 className="font-sans text-base font-bold text-brand-dark">Printable at Home</h3>
               <p className="text-xs text-brand-dark/70 mt-2 leading-relaxed">
-                Mistakes happen! Simply reprint a sheet if your toddler colors outside the lines or wants to try a fresh set of colors.
+                Print on standard copy paper or thick cardstock using any home printer. If kids color outside the lines or make mistakes, simply reprint a fresh page as many times as you like.
               </p>
             </div>
 
-            {/* Feature 6 */}
-            <div className="bg-brand-cream border border-brand-dark/5 p-6 rounded-2xl shadow-xs hover:shadow-md transition duration-200">
+            {/* Card 6 */}
+            <div className="bg-brand-sec border border-brand-dark/5 p-6 rounded-2xl">
               <div className="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-600 flex items-center justify-center mb-4">
                 <Heart className="w-5 h-5" />
               </div>
-              <h3 className="font-sans text-lg font-bold text-brand-dark">Made for Young Hand Coordination</h3>
+              <h3 className="font-sans text-base font-bold text-brand-dark">Personal Use License</h3>
               <p className="text-xs text-brand-dark/70 mt-2 leading-relaxed">
-                Our clean, thick outlines allow toddlers and preschoolers to practice coloring successfully, fostering creativity.
+                Licensed for unlimited printing within your own household, playgroups, family events, or private school classrooms. Share creative holiday fun while keeping distribution personal.
               </p>
             </div>
 
@@ -623,18 +650,18 @@ export default function App() {
       </section>
 
       {/* ----------------------------------------------------------------------
-          PREVIEW GALLERY — CORE HALLOWEEN PAGE CATEGORIES
+          OPTIMIZED SECTION 4: PRODUCT CONTENT CATEGORIES (ACCURATE GRID)
           ---------------------------------------------------------------------- */}
-      <section id="coloring-categories" className="py-20 bg-brand-cream">
+      <section className="py-16 bg-[#FAF7F0] border-t border-b border-brand-dark/5">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-semibold text-brand-sage tracking-widest uppercase mb-1.5 block">Take a peek inside</span>
-            <h2 className="font-sans text-3xl sm:text-4xl text-brand-dark font-extrabold tracking-tight text-wrap-balance">
-              Explore Our Core Halloween Page Categories
+            <span className="text-xs font-extrabold text-brand-orange tracking-widest uppercase mb-1.5 block">Organized collection</span>
+            <h2 className="font-sans text-2xl sm:text-3xl text-brand-dark font-extrabold tracking-tight">
+              Explore Our Halloween Categories
             </h2>
-            <p className="text-sm sm:text-base text-brand-dark/70 mt-3">
-              Over 110+ premium child-friendly illustrations organized beautifully for hours of healthy holiday coloring.
+            <p className="text-xs sm:text-sm text-brand-dark/70 mt-2">
+              Every category corresponds to the actual digital product files, structured to guide your children's drawing interests.
             </p>
           </div>
 
@@ -652,21 +679,21 @@ export default function App() {
             ].map((category, idx) => (
               <div 
                 key={idx}
-                className="bg-[#FAF7F0] border border-brand-dark/5 p-4 rounded-xl flex flex-col justify-between hover:shadow-md transition group"
+                className="bg-white border border-brand-dark/5 p-5 rounded-2xl flex flex-col justify-between hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
               >
                 <div className="flex justify-between items-start">
-                  <span className="text-2xl select-none" role="img" aria-label={category.name}>
+                  <span className="text-3xl select-none group-hover:scale-110 transition-transform" role="img" aria-label={category.name}>
                     {category.icon}
                   </span>
-                  <span className="text-[10px] text-brand-dark/50 uppercase font-semibold tracking-wider">
+                  <span className="text-[10px] text-brand-orange uppercase font-bold tracking-wider">
                     {category.count}
                   </span>
                 </div>
-                <div className="mt-4">
-                  <h4 className="text-xs font-bold text-brand-dark group-hover:text-brand-orange transition-colors">
+                <div className="mt-5">
+                  <h4 className="text-xs sm:text-sm font-extrabold text-brand-dark">
                     {category.name}
                   </h4>
-                  <p className="text-[11px] text-brand-dark/60 mt-1">
+                  <p className="text-[11px] text-brand-dark/60 mt-1 leading-relaxed">
                     {category.style}
                   </p>
                 </div>
@@ -678,7 +705,7 @@ export default function App() {
           <div className="text-center mt-10">
             <button 
               onClick={() => navigateTo('/checkout')}
-              className="inline-flex items-center gap-2 bg-brand-dark text-white hover:bg-brand-dark/95 text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-xl shadow transition cursor-pointer"
+              className="inline-flex items-center gap-2 bg-brand-dark text-white hover:bg-brand-dark/95 text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-xl shadow-sm hover:shadow transition cursor-pointer"
             >
               <span>GET ALL 110+ PAGES NOW</span>
               <ChevronRight className="w-4 h-4" />
@@ -689,53 +716,53 @@ export default function App() {
       </section>
 
       {/* ----------------------------------------------------------------------
-          HOW DIGITAL DELIVERY WORKS (COZY GRAPHIC TIMELINE)
+          OPTIMIZED SECTION 5: IMPROVED PURCHASE PROCESS (VISUAL TIMELINE)
           ---------------------------------------------------------------------- */}
-      <section id="how-it-works" className="py-20 bg-brand-sec border-t border-b border-brand-dark/5">
+      <section id="how-it-works" className="py-20 bg-brand-cream">
         <div className="max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-semibold text-brand-orange tracking-widest uppercase mb-1.5 block">Zero shipping hassle</span>
-            <h2 className="font-sans text-3xl sm:text-4xl text-brand-dark font-extrabold tracking-tight">
-              Your Halloween Collection, Ready in Minutes!
+            <span className="text-xs font-extrabold text-brand-orange tracking-widest uppercase mb-1.5 block">Frictionless access</span>
+            <h2 className="font-sans text-2xl sm:text-3xl text-brand-dark font-extrabold tracking-tight">
+              Get Your Coloring Pages in 3 Simple Steps
             </h2>
-            <p className="text-sm text-brand-dark/70 mt-2">
-              Our simple checkout ensures immediate download so you can start coloring today.
+            <p className="text-xs sm:text-sm text-brand-dark/70 mt-2">
+              Our secure purchase workflow ensures you can start printing in under 2 minutes.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             
             {/* Step 1 */}
-            <div className="flex flex-col items-center text-center px-4">
-              <div className="w-14 h-14 rounded-full bg-brand-cream border border-brand-dark/10 flex items-center justify-center font-sans text-lg font-bold text-brand-orange shadow-xs mb-4 relative z-10">
+            <div className="flex flex-col items-center text-center px-4 relative">
+              <div className="w-14 h-14 rounded-full bg-brand-sec border border-brand-dark/10 flex items-center justify-center font-sans text-lg font-bold text-brand-orange shadow-xs mb-4 relative z-10">
                 01
               </div>
-              <h3 className="font-sans text-lg font-bold text-brand-dark mb-2">01 — Secure Purchase</h3>
+              <h3 className="font-sans text-base font-bold text-brand-dark mb-2">01 — Secure Purchase</h3>
               <p className="text-xs text-brand-dark/70 leading-relaxed">
-                Click our buy button to checkout. Your digital download link is immediately processed.
+                Click our purchase buttons to checkout securely via Whop Elements. Complete payment using credit card, Apple Pay, or Google Pay.
               </p>
             </div>
 
             {/* Step 2 */}
-            <div className="flex flex-col items-center text-center px-4">
-              <div className="w-14 h-14 rounded-full bg-brand-cream border border-brand-dark/10 flex items-center justify-center font-sans text-lg font-bold text-brand-orange shadow-xs mb-4 relative z-10">
+            <div className="flex flex-col items-center text-center px-4 relative">
+              <div className="w-14 h-14 rounded-full bg-brand-sec border border-brand-dark/10 flex items-center justify-center font-sans text-lg font-bold text-brand-orange shadow-xs mb-4 relative z-10">
                 02
               </div>
-              <h3 className="font-sans text-lg font-bold text-brand-dark mb-2">02 — Instant PDF Download</h3>
+              <h3 className="font-sans text-base font-bold text-brand-dark mb-2">02 — Instant PDF Download</h3>
               <p className="text-xs text-brand-dark/70 leading-relaxed">
-                Receive high-resolution, print-ready PDF files containing A4 and US Letter sizes directly in your web browser.
+                Access your print-ready PDF files instantly on your screen. You will also receive an automated email containing lifetime download links.
               </p>
             </div>
 
             {/* Step 3 */}
-            <div className="flex flex-col items-center text-center px-4">
-              <div className="w-14 h-14 rounded-full bg-brand-cream border border-brand-dark/10 flex items-center justify-center font-sans text-lg font-bold text-brand-orange shadow-xs mb-4 relative z-10">
+            <div className="flex flex-col items-center text-center px-4 relative">
+              <div className="w-14 h-14 rounded-full bg-brand-sec border border-brand-dark/10 flex items-center justify-center font-sans text-lg font-bold text-brand-orange shadow-xs mb-4 relative z-10">
                 03
               </div>
-              <h3 className="font-sans text-lg font-bold text-brand-dark mb-2">03 — Print Unlimited Copies</h3>
+              <h3 className="font-sans text-base font-bold text-brand-dark mb-2">03 — Print & Enjoy</h3>
               <p className="text-xs text-brand-dark/70 leading-relaxed">
-                Print on your household printer or neighborhood copy shop. Print favorite pages again if children make mistakes!
+                Print your favorite categories right at home or take them to any local printing shop. Start coloring with standard paper or heavy cardstock.
               </p>
             </div>
 
@@ -745,70 +772,14 @@ export default function App() {
       </section>
 
       {/* ----------------------------------------------------------------------
-          REVIEWS AND SOCIAL PROOF (GENUINE FEEDBACK LAYOUT)
-          ---------------------------------------------------------------------- */}
-      <section className="py-20 bg-brand-cream">
-        <div className="max-w-[1100px] mx-auto px-4 sm:px-6 md:px-8">
-          
-          <div className="mb-12">
-            <span className="text-xs font-semibold text-brand-orange tracking-widest uppercase mb-1.5 block">Community reviews</span>
-            <h2 className="font-sans text-3xl text-brand-dark font-extrabold tracking-tight">
-              Made for Little Halloween Artists
-            </h2>
-          </div>
-
-          {/* Genuine Reviews Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {CUSTOMER_REVIEWS.map((rev) => (
-              <div 
-                key={rev.id}
-                className="bg-[#FAF7F0] border border-brand-dark/5 p-6 rounded-2xl flex flex-col justify-between relative animate-none"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3.5">
-                    <div className="flex items-center gap-0.5 text-amber-500">
-                      {Array.from({ length: rev.rating }).map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                      ))}
-                    </div>
-                    <span className="text-[10px] text-brand-dark/40 font-medium">{rev.date}</span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-brand-dark/80 italic leading-relaxed">
-                    "{rev.text}"
-                  </p>
-                </div>
-
-                <div className="mt-5 pt-3.5 border-t border-brand-dark/5 flex justify-between items-center">
-                  <div>
-                    <h4 className="text-xs font-bold text-brand-dark">{rev.author}</h4>
-                    <p className="text-[10px] text-brand-dark/50 mt-0.5">{rev.role}</p>
-                  </div>
-                  {rev.verified && (
-                    <span className="text-[9px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-md px-1.5 py-0.5">
-                      Verified Buyer
-                    </span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-xs text-center text-brand-dark/40 mt-10">
-            Reviews are written by verified Etsy & independent buyers who completed their PDF downloads.
-          </p>
-
-        </div>
-      </section>
-
-      {/* ----------------------------------------------------------------------
-          FAQ SECTION (INTERACTIVE ACCORDIONS)
+          OPTIMIZED SECTION 7: DETAILE ACCORDION FAQ (9 SPECIFIC QUESTIONS)
           ---------------------------------------------------------------------- */}
       <section id="faqs" className="py-20 bg-brand-sec border-t border-b border-brand-dark/5">
         <div className="max-w-[800px] mx-auto px-4 sm:px-6 md:px-8">
           
           <div className="text-center max-w-xl mx-auto mb-12">
-            <span className="text-xs font-semibold text-brand-sage tracking-widest uppercase mb-1.5 block">Common questions</span>
-            <h2 className="font-sans text-3xl text-brand-dark font-extrabold tracking-tight">
+            <span className="text-xs font-extrabold text-brand-sage tracking-widest uppercase mb-1.5 block">Frequently Asked Questions</span>
+            <h2 className="font-sans text-2xl sm:text-3xl text-brand-dark font-extrabold tracking-tight">
               Frequently Asked Questions
             </h2>
           </div>
@@ -817,14 +788,18 @@ export default function App() {
             {[
               {
                 q: "What exactly will I receive?",
-                a: "You'll receive a digital bundle containing over 110 unique Halloween coloring pages, bonus mini folding coloring cards, and print-ready PDF files formatted for both standard A4 and US Letter sizes."
+                a: "You'll receive a high-resolution, print-ready digital collection in PDF format containing over 110 cute Halloween coloring pages and bonus folding mini coloring greeting cards."
               },
               {
-                q: "Is this a physical coloring book?",
-                a: "No. This is a 100% digital product. No physical item will be shipped to your house. This avoids international shipping fees and delivery delays!"
+                q: "How many coloring pages are included?",
+                a: "There are exactly 110+ individual children's coloring pages included in the collection, beautifully categorized, plus the bonus greeting cards."
               },
               {
-                q: "How do I receive my printable files?",
+                q: "Is this a physical book?",
+                a: "No. This is a 100% digital product. No physical book will be shipped to your house. This avoids international shipping fees and delivery delays!"
+              },
+              {
+                q: "How do I download my files?",
                 a: "Immediately upon completing checkout, you will receive a confirmation screen with instant download access. Additionally, a direct download link is emailed instantly to your email inbox so you can keep and reprint them forever."
               },
               {
@@ -840,11 +815,15 @@ export default function App() {
                 a: "Yes, you can print them as many times as you like for your family's personal use or your classroom students. Perfect for siblings, playdates, and second coloring attempts!"
               },
               {
-                q: "Is this suitable for very young children?",
+                q: "What age group is this collection designed for?",
                 a: "The collection covers a variety of simple and medium drawings. Younger toddlers can easily color the large cute pumpkins and ghosts, while older children will enjoy detailed witch kittens and haunted castles."
+              },
+              {
+                q: "What is your refund policy?",
+                a: "Due to the instant delivery nature of digital files, all sales are final. However, if you have any issues opening or printing the files, simply reach out to us and we will assist you immediately."
               }
             ].map((faq, idx) => {
-              const faqId = `faq-${idx}`;
+              const faqId = `faq-opt-${idx}`;
               const isOpen = expandedDetails[faqId] || false;
               return (
                 <div key={idx} className="bg-brand-cream rounded-xl border border-brand-dark/5 overflow-hidden transition-all duration-200">
@@ -855,13 +834,13 @@ export default function App() {
                         [faqId]: !prev[faqId]
                       }));
                     }}
-                    className="w-full px-5 py-4 flex justify-between items-center text-left font-sans text-sm font-bold text-brand-dark hover:text-brand-orange transition cursor-pointer"
+                    className="w-full px-5 py-4 flex justify-between items-center text-left font-sans text-xs sm:text-sm font-bold text-brand-dark hover:text-brand-orange transition cursor-pointer"
                   >
                     <span>{faq.q}</span>
-                    {isOpen ? <ChevronUp className="w-4.5 h-4.5 text-brand-dark/40" /> : <ChevronDown className="w-4.5 h-4.5 text-brand-dark/40" />}
+                    {isOpen ? <ChevronUp className="w-4 h-4 text-brand-dark/40" /> : <ChevronDown className="w-4 h-4 text-brand-dark/40" />}
                   </button>
                   {isOpen && (
-                    <div className="px-5 pb-4 pt-1 border-t border-brand-dark/5 text-xs sm:text-sm text-brand-dark/75 leading-relaxed">
+                    <div className="px-5 pb-4 pt-1 border-t border-brand-dark/5 text-[11px] sm:text-xs text-brand-dark/75 leading-relaxed">
                       {faq.a}
                     </div>
                   )}
@@ -874,7 +853,7 @@ export default function App() {
       </section>
 
       {/* ----------------------------------------------------------------------
-          FINAL PURCHASE HERO (CREAM BACKDROP & MOCKUP BRIDGING)
+          OPTIMIZED SECTION 9: IMPROVED FINAL PURCHASE SECTION
           ---------------------------------------------------------------------- */}
       <section className="py-20 bg-brand-cream relative overflow-hidden">
         
@@ -895,20 +874,20 @@ export default function App() {
               <h2 className="font-sans text-3xl sm:text-4xl text-brand-dark font-extrabold leading-tight">
                 Ready for a Little Halloween Magic?
               </h2>
-              <p className="text-sm sm:text-base text-brand-dark/70 leading-relaxed">
-                Bring home over **110+ adorable Halloween coloring pages and greeting cards** today. Make this spooky season extra creative and completely screen-free for your little ones!
+              <p className="text-xs sm:text-sm text-brand-dark/70 leading-relaxed">
+                Bring home over 110+ adorable Halloween coloring pages and folding greeting cards. Get unlimited personal print rights for a one-time secure payment of $9.99!
               </p>
 
               <div className="pt-3 flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
                 <button 
                   onClick={() => navigateTo('/checkout')}
-                  className="w-full sm:w-auto bg-brand-orange hover:bg-brand-orange/95 text-white font-semibold text-sm tracking-wide uppercase px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition cursor-pointer"
+                  className="w-full sm:w-auto bg-brand-orange hover:bg-brand-orange/95 text-white font-semibold text-xs sm:text-sm tracking-wide uppercase px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition cursor-pointer"
                 >
-                  GET YOUR COLORING COLLECTION — $9.99
+                  GET 110+ HALLOWEEN COLORING PAGES
                 </button>
               </div>
 
-              <div className="text-xs text-brand-dark/50 italic flex items-center justify-center md:justify-start gap-1">
+              <div className="text-[11px] sm:text-xs text-brand-dark/50 italic flex items-center justify-center md:justify-start gap-1">
                 <Info className="w-3.5 h-3.5" />
                 <span>Instant PDF Download · Print unlimited copies anytime</span>
               </div>
@@ -952,65 +931,11 @@ export default function App() {
       </section>
 
       {/* ----------------------------------------------------------------------
-          FOOTER (MINIMAL, COZY, INDEPENDENT STORE)
+          FOOTER (MINIMAL DISCLAIMER ONLY)
           ---------------------------------------------------------------------- */}
-      <footer className="bg-brand-dark text-white/90 py-12 border-t border-white/5 font-sans">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
-          
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 pb-10 border-b border-white/5">
-            
-            {/* Brand block */}
-            <div className="md:col-span-5 space-y-4 text-center md:text-left">
-              <h3 className="font-sans text-lg font-bold tracking-tight text-white flex items-center justify-center md:justify-start gap-1.5">
-                <span>Little Pumpkin Studio</span>
-              </h3>
-              <p className="text-xs text-white/60 leading-relaxed max-w-sm mx-auto md:mx-0">
-                Making little children's moments more creative, mindful, and screen-free with premium, hand-drawn printable stationery kits.
-              </p>
-              <div className="text-xs text-brand-orange font-medium">
-                © {new Date().getFullYear()} Little Pumpkin Studio. All rights reserved.
-              </div>
-            </div>
-
-            {/* Quick Navigation links */}
-            <div className="md:col-span-3 space-y-3 text-center md:text-left">
-              <h4 className="text-xs font-bold uppercase text-white/45 tracking-wider">Quick Shop Links</h4>
-              <ul className="text-xs space-y-2 text-white/70">
-                <li><a href="#" className="hover:text-brand-orange transition">Halloween Collection</a></li>
-                <li><a href="#coloring-categories" className="hover:text-brand-orange transition">The Collection Preview</a></li>
-                <li><a href="#how-it-works" className="hover:text-brand-orange transition">Printing Information Guide</a></li>
-                <li><a href="#faqs" className="hover:text-brand-orange transition">Frequently Asked Questions</a></li>
-              </ul>
-            </div>
-
-            {/* Legal Links */}
-            <div className="md:col-span-4 space-y-3 text-center md:text-left">
-              <h4 className="text-xs font-bold uppercase text-white/45 tracking-wider">Store Agreements</h4>
-              <ul className="text-xs space-y-2 text-white/70">
-                <li><a href="#" className="hover:text-brand-orange transition">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-brand-orange transition">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-brand-orange transition">Refund Policy (Digital Downloads)</a></li>
-              </ul>
-              <div className="pt-2 text-[10px] text-white/50 leading-relaxed max-w-xs mx-auto md:mx-0">
-                <strong>Digital Product Disclaimer:</strong> Upon completing payment, download is supplied immediately. High resolution vector line-art quality. Licensed exclusively for personal or classroom environment replication.
-              </div>
-            </div>
-
-          </div>
-
-          <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-white/40">
-            <div>
-              Designed with love for creative children.
-            </div>
-            <div className="flex gap-4">
-              <a href="#" className="hover:text-brand-orange transition">Instagram</a>
-              <span>·</span>
-              <a href="#" className="hover:text-brand-orange transition">Pinterest</a>
-              <span>·</span>
-              <a href="#" className="hover:text-brand-orange transition">Etsy Shop</a>
-            </div>
-          </div>
-
+      <footer className="bg-brand-dark text-white/50 py-8 border-t border-white/5 font-sans">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 text-center text-[10px] leading-relaxed">
+          Digital Product Disclaimer: Upon completing payment, download is supplied immediately. High resolution vector line-art quality. Licensed exclusively for personal or classroom environment replication.
         </div>
       </footer>
 
