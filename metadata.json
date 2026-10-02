@@ -1,0 +1,6 @@
+{
+  "name": "Little Pumpkin Studio - 110+ Halloween Coloring Pages",
+  "description": "A premium printable children's stationery storefront offering 110+ adorable Halloween coloring pages for kids. Instant digital download, beautifully designed for hours of creative fun.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
