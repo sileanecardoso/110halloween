@@ -126,76 +126,73 @@ function WhopCheckout({ onBack }: { onBack: () => void }) {
           <span>Back to Product Details</span>
         </button>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start bg-brand-sec p-6 sm:p-8 rounded-3xl border border-brand-dark/5 shadow-sm">
-          
-          {/* Column 1: Order Summary */}
-          <div className="md:col-span-5 space-y-6">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-brand-dark/5 shadow-sm">
+        <div className="mb-8 space-y-4">
+          <div className="flex gap-4 items-center">
+            {/* Image styled like a small, premium icon */}
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-brand-dark/10 shadow-xs shrink-0 bg-white">
               <img 
                 src="https://i.imgur.com/GXbdrFi.jpeg" 
-                alt="110+ Halloween Coloring Pages" 
-                className="w-full h-full object-cover"
+                alt="Thumbnail" 
+                className="w-full h-full object-cover animate-none" 
               />
             </div>
-
-            <div>
-              <span className="text-[10px] font-bold text-brand-orange tracking-widest uppercase">Digital Printable Bundle</span>
-              <h2 className="font-sans text-xl sm:text-2xl font-extrabold text-brand-dark leading-tight mt-1">
+            <div className="space-y-1">
+              <span className="text-[10px] sm:text-xs font-bold text-brand-orange tracking-widest uppercase block">Digital Printable Bundle</span>
+              <h2 className="text-base sm:text-lg font-extrabold text-brand-dark leading-tight">
                 110+ Adorable Halloween Coloring Pages for Kids!
               </h2>
-            </div>
-
-            <div className="border-t border-b border-brand-dark/10 py-4 space-y-3">
-              <div className="flex justify-between text-sm">
-                <span className="text-brand-dark/70">Coloring PDF Bundle x1</span>
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-brand-dark/60 font-medium">
+                <span>Coloring PDF Bundle x1</span>
+                <span>·</span>
                 <span className="font-bold text-brand-dark">$9.99</span>
               </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-brand-dark/70">Sales Tax</span>
-                <span className="text-brand-dark/50 font-medium">Calculated at checkout</span>
-              </div>
-              <div className="flex justify-between text-base font-bold text-brand-dark pt-2 border-t border-brand-dark/5">
-                <span>Total Amount</span>
-                <span className="text-brand-orange font-extrabold text-lg">$9.99</span>
-              </div>
-            </div>
-
-            <div className="space-y-2.5 text-xs text-brand-dark/75">
-              <div className="flex items-start gap-2">
-                <Check className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
-                <span>Instant digital access to PDF files directly upon checkout</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <Check className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
-                <span>US Letter & A4 paper printing configurations included</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <Check className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
-                <span>Unconditional home or school printing permissions</span>
-              </div>
-            </div>
-
-            <div className="bg-white/50 border border-brand-dark/5 rounded-xl p-3 flex items-center gap-2.5">
-              <Lock className="w-4 h-4 text-brand-sage shrink-0" />
-              <span className="text-[11px] font-medium text-brand-dark/60 leading-relaxed">
-                Secure checkout encrypted and processed by Whop Commerce.
-              </span>
             </div>
           </div>
 
-          {/* Column 2: Whop Elements Embedded Form */}
-          <div className="md:col-span-7 bg-white rounded-2xl p-4 sm:p-6 border border-brand-dark/5 min-h-[450px] relative">
-            {loading && (
-              <div className="absolute inset-0 flex flex-col justify-center items-center bg-white rounded-2xl z-10">
-                <div className="w-8 h-8 rounded-full border-2 border-brand-orange border-t-transparent animate-spin mb-3"></div>
-                <span className="text-xs font-semibold text-brand-dark/60">Securing your connection...</span>
-              </div>
-            )}
-            
-            {/* The Whop Element anchor container */}
-            <div id="whop-checkout" className="w-full"></div>
+          {/* Pricing Row details */}
+          <div className="pt-3 border-t border-brand-dark/5 flex flex-wrap justify-between items-center gap-2 text-xs sm:text-sm text-brand-dark/70">
+            <div>
+              <span>Sales Tax: </span>
+              <span className="font-medium text-brand-dark/50">Calculated at checkout</span>
+            </div>
+            <div className="text-sm sm:text-base font-extrabold text-brand-dark">
+              <span>Total Amount: </span>
+              <span className="text-brand-orange text-base sm:text-lg font-black">$9.99</span>
+            </div>
           </div>
 
+          {/* Core summary bullet items */}
+          <div className="space-y-1.5 pt-2 border-t border-brand-dark/5 text-[11px] sm:text-xs text-brand-dark/75">
+            <div className="flex items-start gap-2">
+              <Check className="w-3.5 h-3.5 text-brand-orange shrink-0 mt-0.5" />
+              <span>Instant digital access to PDF files directly upon checkout</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Check className="w-3.5 h-3.5 text-brand-orange shrink-0 mt-0.5" />
+              <span>US Letter & A4 paper printing configurations included</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Check className="w-3.5 h-3.5 text-brand-orange shrink-0 mt-0.5" />
+              <span>Unconditional home or school printing permissions</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Lock className="w-3.5 h-3.5 text-brand-sage shrink-0 mt-0.5" />
+              <span>Secure checkout encrypted and processed by Whop Commerce.</span>
+            </div>
+          </div>
+        </div>
+
+        {/* PRIMARY HERO CARD: The Whop Checkout Form */}
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-brand-dark/10 shadow-xl min-h-[450px] relative">
+          {loading && (
+            <div className="absolute inset-0 flex flex-col justify-center items-center bg-white rounded-3xl z-10">
+              <div className="w-8 h-8 rounded-full border-2 border-brand-orange border-t-transparent animate-spin mb-3"></div>
+              <span className="text-xs font-semibold text-brand-dark/60 font-sans">Securing your connection...</span>
+            </div>
+          )}
+          
+          {/* The Whop Element anchor container */}
+          <div id="whop-checkout" className="w-full"></div>
         </div>
       </div>
     </div>
